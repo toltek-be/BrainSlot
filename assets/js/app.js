@@ -135,8 +135,8 @@ class Reel {
 
   init() {
     const directory = this.isLeft
-      ? 'public/images/png/left'
-      : 'public/images/png/right';
+      ? 'assets/images/png/left'
+      : 'assets/images/png/right';
 
     for (let i = 0; i < NUM_IMAGES * 6; i++) {
       const icon = document.createElement('div');
