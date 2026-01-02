@@ -1,0 +1,193 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: radial-gradient(circle, #0d0f1d, #000);
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #fireworks-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .container {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .title {
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .slots {
+      position: relative;
+      width: 290px;
+      height: 290px;
+      margin: auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(45deg, #666 0%, #000 100%);
+      border: 1px solid #333;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 50px rgba(255, 255, 255, 0.1);
+    }
+
+    .reel {
+      position: relative;
+      width: 120px;
+      height: 240px;
+      border-radius: 5px;
+      overflow: hidden;
+      background: #fff;
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+    }
+
+    .reel:active {
+      cursor: grabbing;
+    }
+
+    .reel-strip {
+      position: absolute;
+      width: 100%;
+      transition: transform 0.3s ease-out;
+    }
+
+    .reel.animating .reel-strip {
+      transition: transform 0.8s cubic-bezier(.41,-0.01,.63,1.09);
+    }
+
+    .icon {
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-bottom: 1px solid #333;
+      font-size: 48px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    
+    #reel1 .icon img {
+      object-position: right;
+    }
+    
+    #reel2 .icon img {
+      object-position: left;
+    }
+
+    .reel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.4) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.4) 100%);
+      pointer-events: none;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    }
+    
+    .icon.question-mark {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-size: 72px;
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+    }
+
+    .selection-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% - 10px);
+      height: 120px;
+      border-radius: 5px;
+      pointer-events: none;
+    }
+
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      background: linear-gradient(35deg, #131c57 0%, #000 100%);
+      color: white;
+      border: 1px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4), 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .result-display {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(240, 240, 240, 0.9);
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+  

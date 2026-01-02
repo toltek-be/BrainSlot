@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BrainSlot, un calculateur ludique pour mesurer l’état de ton cerveau après les fêtes de fin d’année." />
+  <title>🧠 BrainSlot</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+
+  <main class="container">
+    <header class="title">
+      <h1>🧠 BrainSlot</h1>
+    </header>
+
+    <div class="slots">
+      <div class="reel" id="reel1" draggable="false">
+        <div class="reel-strip"></div>
+        <div class="selection-box"></div>
+      </div>
+
+      <div class="reel" id="reel2" draggable="false">
+        <div class="reel-strip"></div>
+        <div class="selection-box"></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="animate-btn" type="button">
+        Vérifie l'état actuel de ton cerveau
+      </button>
+    </div>
+  </main>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
